@@ -2,11 +2,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css'
-import ComponenteContainer from './COMPONENTS/componenteContainer/ComponenteContainer';
+import ItemLisContainer from './COMPONENTS/ItemListContainer/ItemListContainer';
 import Nav3D from './COMPONENTS/Navbar/Navbar';
-
-
-let titulo='Hola soy Titulo de componetContainer'
 
 function App() {
   
@@ -14,7 +11,7 @@ function App() {
   return (
     <>
     <Nav3D/>
-    <ComponenteContainer titulo={titulo}/>
+    <ItemLisContainer componente={Nav3D}/>
     </>
   )
 }
