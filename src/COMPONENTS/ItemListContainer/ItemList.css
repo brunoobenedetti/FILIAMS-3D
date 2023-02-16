@@ -1,6 +1,5 @@
-.car{
-    
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
+.producto{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
