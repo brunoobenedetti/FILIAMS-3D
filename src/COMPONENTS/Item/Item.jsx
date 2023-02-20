@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom"
 
-export const Item = ({producto}) => {
+export const Item = ({Producto}) => {
   return (
-    <div key={producto.id} className='card w-25 mt-3 shadow '>
+    <div key={Producto.id} className='card w-25 mt-3 shadow '>
                 <div className='card-image'>
                     nombre: {Producto.name}
-                    <img className='w-100'src={producto.img}/>
+                    <img className='w-100'src={Producto.img}/>
                 </div>
                 <div className='card-content'> 
                     <p> {Producto.precio}</p>
                 </div>
                 <div className='card-footer'>
-                    <Link to ={'/detalle/${producto.id}'}></Link>
-                    <button className="btn btn-outline-dark w-100"> </button>
+                    <Link className="btn btn-outline-dark w-100" to ={'/detalle/${producto.id}'}>Detalle</Link>
+                    
                 </div>
             </div>
   )
