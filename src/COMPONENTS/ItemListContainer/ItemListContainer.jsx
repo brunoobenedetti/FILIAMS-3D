@@ -1,54 +1,42 @@
-import './itemList.css'
+import './ItemListContainer.css';
 import React,{useEffect, useState} from 'react';
-import Button from 'react-bootstrap/Button';
-import { gFetcht } from '../../utils/gFecht';
 
+import { gFetch } from '../../utils/gFech';
+import { useParams } from 'react-router-dom';
+import ItemList from '../ItemList/ItemList';
 
 
 export const ItemLisContainer = () => {
-const [itemList, setItemList] =useState([])
+const [Productos, setPrductos] =useState([])
 const [loading, setLoading ] = useState(true)
-
+const {Categoria} = useParams()
 useEffect(() => {
-    gFetcht()
-        .then(resp => setItemList(resp))
+    if(Categoria){
+        gFetch()
+            .then(resp => setPrductos(resp.filter(producto => producto.categoria === Categoria)))
+            .catch( err =>console.log(err))
+            .finally( ()=>setLoading(false))
+} else {
+    gFetch()
+        .then(resp => setPrductos(resp))
         .catch( err =>console.log(err))
         .finally( ()=>setLoading(false))
-}, []) 
-console.log(itemList)
-/* let fecha = Date(); 
+    }
+}, [Categoria])
 
-const hanldeCount = () => {
-    console.log(count)
-    setCount(count + 1)
-} */
+console.log(Categoria)
+
 
     return (
         <>
         { 
         loading ?
-        <h2>loading....</h2>
+        <h2 style={{textAlign: 'center'}}>loading....</h2>
         :
-        <div className='productos'>
-            
-            {itemList.map(item=> ( 
-                <div key={item.id} className='card w-25 mt-4'>
-                <div className='card-image'>
-                    nombre: {item.name}
-                    <img className='w-100'src={item.img}/>
-                </div>
-                <div className='card-content'> 
-                    <p> ${item.precio}</p>
-                </div>
-                <div className='card-footer'>
-                    <button className='btn btn-outline-dark w-100'>Detalle </button>
-                </div>
-            </div>))}
-        </div>
+            <> 
+            <ItemList productos={Productos}/>
+            </>
         }
-        
         </>
     )
 }
-
-export default ItemLisContainer

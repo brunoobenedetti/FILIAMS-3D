@@ -7,6 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import CartWidget from '../CartWidget/CartWidget';
+import { Link, NavLink } from 'react-router-dom';
 export const Nav3D =() => {
     return (
         <>
@@ -16,13 +17,9 @@ export const Nav3D =() => {
             <Navbar.Toggle aria-controls='navbarScroll' />
             <Navbar.Collapse id="navbarScroll">
                 <Nav className='me-auto my0 my-lg-3' style={{ maxHeight: '100%' }}navbarScroll>
-                    <Nav.Link href='#action1'>Inicio</Nav.Link>
-                    <Nav.Link href='#action2'>soporte</Nav.Link>
-                    <NavDropdown title='Impresoras-3D' id='navbarScrollingDropdown'>
-                    <NavDropdown.Item href='#action3'>Impresoras 3D</NavDropdown.Item>
-                    <NavDropdown.Item href='#action4'>Accesorios</NavDropdown.Item><NavDropdown.Item />
-                    <NavDropdown.Item href='#action5'>Insumos</NavDropdown.Item></NavDropdown>
-                    <Nav.Link href='#action6' >Modals</Nav.Link>
+                    <Link to='/'>Inicio</Link>
+                    <NavLink className={({isActive})=>isActive ? 'btn btn-dark' : 'btn btn-outline-dark'} to='/categoria/impresoras 3d'>Impresoras 3D</NavLink>
+                    <Nav.Link href='#action6' >Models</Nav.Link>
                 </Nav>
                 <Form className='d-flex'>
                     <Form.Control
@@ -32,8 +29,9 @@ export const Nav3D =() => {
                     aria-label='Search'
                     />
                 </Form>
-            
-            <Button  className='BtnCarrito' ><CartWidget/></Button>
+                    <Link to ='/detalle'>
+                        <CartWidget/>
+                    </Link>
             </Navbar.Collapse>
         </Container>
         </Navbar>

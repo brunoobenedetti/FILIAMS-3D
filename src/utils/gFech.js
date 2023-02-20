@@ -1,4 +1,4 @@
-let itemList = [
+let Productos = [
     { id:'1' , categoria: 'IMPRESORA 3D', name: "ENDER 3 V2", precio:1, img:'https://www.venex.com.ar/products_images/1627671170_sadfgsdfg.jpg'},
     { id:'2' , categoria: 'IMPRESORA 3D', name: "ENDER 3 V2", precio:2, img:'https://www.venex.com.ar/products_images/1627671170_sadfgsdfg.jpg'},
     { id:'3' , categoria: 'IMPRESORA 3D', name: "ENDER 3 V2", precio:3, img:'https://www.venex.com.ar/products_images/1627671170_sadfgsdfg.jpg'},
@@ -13,13 +13,15 @@ let itemList = [
     { id:'12' , categoria: '',nombre:"", precio:12, img:''},
 
 ] 
-export const gFetcht = () => new Promise( (res, rej)=>{
+export  const gFetch = (id) => new Promise( (res, rej)=>{
     let condition = true
     if (condition) {
         setTimeout(()=>{
-            res (itemList)
-        },2000)
+            res (id ? Productos.find(prod => id === prod.id) : Productos)
+        },1000)
     }else {
         rej('error')
     }
 })
+
+export default gFetch
