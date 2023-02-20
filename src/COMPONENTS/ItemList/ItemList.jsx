@@ -1,12 +1,11 @@
 
 
-
 import Item from "../Item/Item"
 
 const ItemList =({Productos}) => {
 
   return (
-    <div className="itemList">
+    <div  className="justify-content-center align-item-center"  >
       {Productos.map(Producto => <Item Producto={Producto} />)}
     </div>
   )

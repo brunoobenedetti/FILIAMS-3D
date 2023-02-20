@@ -1,7 +1,7 @@
-import {useCartContext} from "react-router-dom"
-import { useState } from "react"
+
+
 import { useParams } from "react-router-dom"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { gFetch } from "../../utils/gFech"
 import ItemDetail from "../ItemDetail/ItemDetail"
 export const ItemDetailContainer = () => {

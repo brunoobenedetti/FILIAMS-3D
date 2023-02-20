@@ -1,9 +1,9 @@
 import './ItemListContainer.css';
-import React,{useEffect, useState} from 'react';
-
-import { gFetch } from '../../utils/gFech';
+import {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
+import { gFetch } from '../../utils/gFech';
 import ItemList from '../ItemList/ItemList';
+
 
 
 export const ItemLisContainer = () => {
@@ -34,7 +34,7 @@ console.log(Categoria)
         <h2 style={{textAlign: 'center'}}>loading....</h2>
         :
             <> 
-            <ItemList productos={Productos}/>
+            <ItemList Productos={Productos}/>
             </>
         }
         </>

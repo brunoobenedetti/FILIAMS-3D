@@ -4,7 +4,7 @@ import { BrowserRouter,Navigate, Route, Routes } from 'react-router-dom';
 
 import './App.css'
 import ItemCount from './COMPONENTS/ItemCount/ItemCount';
-import ItemDetailContainer from './COMPONENTS/itemDetailContainer/itemDetailContainer';
+import ItemDetailContainer from './COMPONENTS/ItemDetailContainer/ItemDetailContainer';
 import {ItemLisContainer} from './COMPONENTS/ItemListContainer/ItemListContainer';
 import Nav3D from './COMPONENTS/Navbar/Navbar';
 
