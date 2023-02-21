@@ -11,7 +11,7 @@ export const Item = ({Producto}) => {
                     <p> {Producto.precio}</p>
                 </div>
                 <div className='card-footer'>
-                    <Link className="btn btn-outline-dark w-100" to ={'/detalle/${producto.id}'}>Detalle</Link>
+                    <Link className="btn btn-outline-dark w-100" to ={`/detalle/${Producto.id}`}>Detalle</Link>
                     
                 </div>
             </div>
