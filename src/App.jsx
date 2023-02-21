@@ -16,9 +16,8 @@ function App() {
         <Nav3D/>
           <Routes>
             <Route path='/' element ={<ItemLisContainer componente={Nav3D}/>  }></Route>
-            <Route path='/Categoria/IMPRESORA 3D' element ={<ItemLisContainer/>}></Route>
-            <Route path='/Categoria/FILAMENTOS-3D' element ={<ItemLisContainer/>}></Route>
-            <Route path='/detalle/:idProducto' element ={<ItemDetailContainer/>}></Route>
+            <Route path='/categoria/:Categoriaid' element ={<ItemLisContainer/>}></Route>
+            <Route path='/detalle/:Productoid' element ={<ItemDetailContainer/>}></Route>
             <Route path='/cart'element = {<ItemLisContainer/>}> </Route>
             <Route path='*' element ={ <Navigate to='/'/>} ></Route>
             

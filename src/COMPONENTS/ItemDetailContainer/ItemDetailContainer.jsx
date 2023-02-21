@@ -5,20 +5,20 @@ import { useEffect, useState } from "react"
 import { gFetch } from "../../utils/gFech"
 import ItemDetail from "../ItemDetail/ItemDetail"
 export const ItemDetailContainer = () => {
-    const [product, setProduct] = useState({})
-    const {idProducto} =useParams()
+    const [Product, setProduct] = useState({})
+    const {Productoid} =useParams()
 
     
 
-    console.log(idProducto)
+    console.log(Productoid)
     useEffect(()=>{
         
-        gFetch(idProducto)
+        gFetch(Productoid)
         .then(resp => setProduct(resp))
     
     },[])
     return (
-        <ItemDetail  Product={product}/>
+        <ItemDetail  product={Product}/>
     )
 }
 

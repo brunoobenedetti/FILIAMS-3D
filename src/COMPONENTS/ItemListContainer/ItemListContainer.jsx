@@ -7,13 +7,13 @@ import ItemList from '../ItemList/ItemList';
 
 
 export const ItemLisContainer = () => {
-const [Productos, setPrductos] =useState([])
+const [productos, setPrductos] =useState([])
 const [loading, setLoading ] = useState(true)
-const {Categoria} = useParams()
+const {Categoriaid} = useParams()
 useEffect(() => {
-    if(Categoria){
+    if(Categoriaid){
         gFetch()
-            .then(resp => setPrductos(resp.filter(producto => producto.categoria === Categoria)))
+            .then(resp => setPrductos(resp.filter(producto => producto.categoria === Categoriaid)))
             .catch( err =>console.log(err))
             .finally( ()=>setLoading(false))
 } else {
@@ -22,9 +22,9 @@ useEffect(() => {
         .catch( err =>console.log(err))
         .finally( ()=>setLoading(false))
     }
-}, [Categoria])
+}, [Categoriaid])
 
-console.log(Categoria)
+console.log(Categoriaid)
 
 
     return (
@@ -34,7 +34,7 @@ console.log(Categoria)
         <h2 style={{textAlign: 'center'}}>loading....</h2>
         :
             <> 
-            <ItemList Productos={Productos}/>
+            <ItemList Productos={productos}/>
             </>
         }
         </>
