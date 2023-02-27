@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter,Navigate, Route, Routes } from 'react-router-dom';
 
 import './App.css'
+import ItemCount from './COMPONENTS/ItemCount/ItemCount';
 
 import ItemDetailContainer from './COMPONENTS/ItemDetailContainer/ItemDetailContainer';
 import {ItemLisContainer} from './COMPONENTS/ItemListContainer/ItemListContainer';
@@ -15,11 +16,11 @@ function App() {
       <BrowserRouter>
         <Nav3D/>
           <Routes>
-            <Route path='/' element ={<ItemLisContainer componente={Nav3D}/>  }></Route>
-            <Route path='/categoria/:Categoriaid' element ={<ItemLisContainer/>}></Route>
-            <Route path='/detalle/:Productoid' element ={<ItemDetailContainer/>}></Route>
-            <Route path='/cart'element = {<ItemLisContainer/>}> </Route>
-            <Route path='*' element ={ <Navigate to='/'/>} ></Route>
+            <Route path='/' element ={<ItemLisContainer componente={Nav3D}/>  }/>
+            <Route path='/categoria/:Categoriaid' element ={<ItemLisContainer/>}/>
+            <Route path='/detalle/:Productoid' element ={<ItemDetailContainer/>}/>
+            <Route path='/Cart'element = {<ItemCount/>}/>
+            <Route path='*' element ={ <Navigate to='/'/>} />
             
           </Routes>
           

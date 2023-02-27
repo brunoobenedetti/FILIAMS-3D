@@ -6,6 +6,7 @@ import { gFetch } from "../../utils/gFech"
 import ItemDetail from "../ItemDetail/ItemDetail"
 export const ItemDetailContainer = () => {
     const [Product, setProduct] = useState({})
+    const [loading, setLoading ] = useState(true)
     const {Productoid} =useParams()
 
     
@@ -15,10 +16,19 @@ export const ItemDetailContainer = () => {
         
         gFetch(Productoid)
         .then(resp => setProduct(resp))
+        .finally( ()=>setLoading(false))
     
     },[])
     return (
-        <ItemDetail  product={Product}/>
+        <>
+        {loading ?
+            <h2 style={{textAlign: 'center'}}>loading....</h2>
+            :
+        
+            <ItemDetail  product={Product}/>
+        }
+        </>
+
     )
 }
 
