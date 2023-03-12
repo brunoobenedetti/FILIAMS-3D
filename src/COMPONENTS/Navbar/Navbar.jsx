@@ -12,7 +12,7 @@ export const Nav3D =() => {
         <>
         <Navbar  bg='info' expand='lg'>
         <Container >
-            <Navbar.Brand href='#'>FILAM-3D</Navbar.Brand>
+            <Navbar.Brand href='#' >FILAM-3D</Navbar.Brand>
             <Navbar.Toggle aria-controls='navbarScroll' />
             <Navbar.Collapse id="navbarScroll">
                 <Nav className='me-auto my0 my-lg-3' style={{ maxHeight: '100%' }}navbarScroll>
@@ -29,7 +29,7 @@ export const Nav3D =() => {
                     aria-label='Search'
                     />
                 </Form>
-                    <Link to ='/Cart'>
+                    <Link to ='/cart'>
                         <CartWidget/>
                     </Link>
             </Navbar.Collapse>

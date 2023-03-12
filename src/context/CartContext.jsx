@@ -9,18 +9,17 @@ export const useCartContext = () => {
 
 
 export const CartContextProvider = ({children}) => {
-    // estados y funciones globales
+
+
+    
     const [cartList, setCartList] = useState([])
 
-    // logica de no repetir el product
     const agregarCart = ( producto ) => {
         setCartList( [
             ...cartList,
             producto
         ] )
     }
-
-    
 
     const vaciarCarrito = () =>{
         setCartList([])

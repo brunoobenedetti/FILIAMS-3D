@@ -2,11 +2,11 @@
 import '../ItemListContainer/ItemListContainer';
 import Item from "../Item/Item"
 
-const ItemList =({Productos}) => {
+const ItemList =({Products}) => {
 
   return (
     <div  className="itemList"  >
-      {Productos.map(Producto => <Item key={Producto.id} Producto={Producto} />)}
+      {Products.map(Product => <Item key={Product.id} Produc={Product} />)}
     </div>
   )
 }

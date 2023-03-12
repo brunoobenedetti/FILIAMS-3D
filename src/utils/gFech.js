@@ -24,4 +24,4 @@ export  const gFetch = (id) => new Promise( (res, rej)=>{
     }
 })
 
-export default gFetch
+export default gFetch 

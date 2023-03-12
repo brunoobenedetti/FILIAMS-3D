@@ -6,8 +6,8 @@
     background-color: rgb(0, 200, 255);
     color:rgb(10, 10, 11);
 }
-.btnim{
-    width:auto;
+.btn{
+    width:autoSS;
     border-bottom: none;
     color: black;
     text-align: center;
