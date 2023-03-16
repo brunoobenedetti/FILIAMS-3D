@@ -10,13 +10,13 @@ import Loading from "../Loading/Loading"
 export const ItemDetailContainer = () => {
     const [Product, setProduct] = useState({});
     const [loading, setLoading ] = useState(true);
-    const {Productid} =useParams();
+    const {Productoid} =useParams();
     
-
+console
 
     useEffect(()=>{
         const db = getFirestore()
-        const queryDoc = doc(db, 'Products', Productid)
+        const queryDoc = doc(db, 'Products',Productoid)
             getDoc(queryDoc)
                 .then(respProd => setProduct( { id: respProd.id, ...respProd.data ()}))
                 .catch(err => console.error(err))

@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 import CartContext, { useCartContext } from '../../context/CartContext'
 import ItemCount from '../ItemCount/ItemCount'
 
-const ItemDetail = ({product}) => {
+const ItemDetail = ({produc}) => {
     const [isCount, setIsCount] = useState(true)
     const {agregarCart} = useCartContext (CartContext)
     function onAdd(cantidad){
-        agregarCart( { ... product, cantidad})
+        agregarCart( { ... produc, cantidad})
         setIsCount(false)
     }
     return (
@@ -16,12 +16,13 @@ const ItemDetail = ({product}) => {
             <div className="row">
                 <div className="col-6">
                     <div>
-                        <img src={product.img } alt='img' className="w-50" />
+                        <img src={produc.img } alt='img' className="w-50" />
                     </div>
                     <div>
-                        <p className="" >Nombre: {product.name}</p>
-                        <p className="" >Categoría: {product.categoria}</p>
-                        <p className="" >Precio: {product.precio}</p>
+                        <p >Nombre: {produc.name}</p>
+                        <p >Categoría: {produc.categoria}</p>
+                        <p >Precio: {produc.precio}</p>
+                        <p >stok:{produc.stock}</p>
                     </div>
                 </div>
                 <div className="col-6">
