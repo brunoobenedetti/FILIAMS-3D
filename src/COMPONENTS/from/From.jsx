@@ -16,7 +16,7 @@ const [datForm,setDatFrom] = useState({
 const generarOrden =(event) => {
 event.preventDefault()
 if (datForm.gmail !== datForm.validarGmail){
-    ("Gmail incorrecot vuelva a escribirlo")
+    throw new Error("Gmail incorrecto. Por favor, escríbalo nuevamente.")
 }else{
     const orden ={}
     orden.comprador =datForm
@@ -28,10 +28,12 @@ if (datForm.gmail !== datForm.validarGmail){
     const queryCollec = collection(db , "Orden")
 
     addDoc(queryCollec, orden)
-    .then (resp => setId(resp.id))
+    .then(resp => {
+        setId(resp.id)
+        vaciarCarrito()
+    })
     .catch (err => console.log(err))
     .finally (() => {
-        vaciarCarrito()
         setDatFrom({
             name:'',
             gmail:'',
@@ -43,12 +45,13 @@ if (datForm.gmail !== datForm.validarGmail){
 }
 }
 
-if (cartList .length ===0) {
-return <div >
+if (cartList.length ===0) {
+return( <div >
             <h2>No hay productos en el carro</h2>
             <h3>Su numero de orden es: {id}</h3>
             <Link to='/' className="btn btn-dark bg-white"  > ir home</Link>
-    </div>
+    </div>)
+
 }
 const handleOnChange = (evt) => {
 setDatFrom({
@@ -95,7 +98,7 @@ return (
 
                     <input className='form-control'
                     type="text" 
-                    name='validarGmail' z
+                    name='validarGmail' 
                     placeholder='Validar gmail'
                     onChange={handleOnChange} 
                     required
@@ -103,7 +106,8 @@ return (
                     >
                     </input>
 
-                    <button  className='btn btn-dark'>Generar Orden</button><br />
+                    <button  className='btn btn-dark'>Generar Orden</button> 
+                    <br /><br />
                     <button onClick={vaciarCarrito} className='btn btn-dark'>Vaciar Carrito</button>
                 </form>
                 </div>
